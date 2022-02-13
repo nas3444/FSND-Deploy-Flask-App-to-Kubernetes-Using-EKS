@@ -36,3 +36,12 @@ Completing the project involves several steps:
 6. Create a CodeBuild stage which will build, test, and deploy your code
 
 For more detail about each of these steps, see the project lesson.
+## Notes
+- to get your account ID 
+`aws sts get-caller-identity --query Account --output text`
+
+## after review do the following 
+1. delete the eks cluster   
+ `eksctl delete cluster simple-jwt-api  --region=us-east-2`
+2. delete JWT_SECRET from te parameter store
+ `aws ssm delete-parameter --name JWT_SECRET`
