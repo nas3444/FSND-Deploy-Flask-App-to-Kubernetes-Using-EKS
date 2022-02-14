@@ -2,6 +2,7 @@
 """
 A simple app to create a JWT token.
 """
+from copyreg import constructor
 import os
 import logging
 import datetime
@@ -88,6 +89,8 @@ def decode_jwt():
     """
     Check user token and return non-secret data
     """
+    print("hello we're here")
+    print(request.headers)
     if not 'Authorization' in request.headers:
         abort(401)
     data = request.headers['Authorization']

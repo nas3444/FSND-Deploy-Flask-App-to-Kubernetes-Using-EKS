@@ -43,5 +43,5 @@ For more detail about each of these steps, see the project lesson.
 ## after review do the following 
 1. delete the eks cluster   
  `eksctl delete cluster simple-jwt-api  --region=us-east-2`
-2. delete JWT_SECRET from te parameter store
+2. delete JWT_SECRET from the parameter store
  `aws ssm delete-parameter --name JWT_SECRET`
