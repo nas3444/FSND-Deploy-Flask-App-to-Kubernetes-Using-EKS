@@ -1,0 +1,479 @@
+
+[Container] 2022/02/24 19:29:43 Waiting for agent ping
+[Container] 2022/02/24 19:29:44 Waiting for DOWNLOAD_SOURCE
+[Container] 2022/02/24 19:29:45 Phase is DOWNLOAD_SOURCE
+[Container] 2022/02/24 19:29:45 CODEBUILD_SRC_DIR=/codebuild/output/src987278414/src
+[Container] 2022/02/24 19:29:45 YAML location is /codebuild/output/src987278414/src/buildspec.yml
+[Container] 2022/02/24 19:29:45 Processing environment variables
+[Container] 2022/02/24 19:29:45 Decrypting parameter store environment variables
+[Container] 2022/02/24 19:29:45 Selecting 'python' runtime version '3.7' based on manual selections...
+[Container] 2022/02/24 19:29:45 Running command echo "Installing Python version 3.7 ..."
+Installing Python version 3.7 ...
+
+[Container] 2022/02/24 19:29:45 Running command pyenv global  $PYTHON_37_VERSION
+
+[Container] 2022/02/24 19:29:47 Moving to directory /codebuild/output/src987278414/src
+[Container] 2022/02/24 19:29:47 Configuring ssm agent with target id: codebuild:b26c54a5-efd7-43f6-9151-8b6f553fd4cd
+[Container] 2022/02/24 19:29:47 Successfully updated ssm agent configuration
+[Container] 2022/02/24 19:29:47 Registering with agent
+[Container] 2022/02/24 19:29:47 Phases found in YAML: 4
+[Container] 2022/02/24 19:29:47  INSTALL: 10 commands
+[Container] 2022/02/24 19:29:47  PRE_BUILD: 6 commands
+[Container] 2022/02/24 19:29:47  BUILD: 1 commands
+[Container] 2022/02/24 19:29:47  POST_BUILD: 4 commands
+[Container] 2022/02/24 19:29:47 Phase complete: DOWNLOAD_SOURCE State: SUCCEEDED
+[Container] 2022/02/24 19:29:47 Phase context status code:  Message: 
+[Container] 2022/02/24 19:29:47 Entering phase INSTALL
+[Container] 2022/02/24 19:29:47 Running command echo 'about to call dockerd'
+about to call dockerd
+
+[Container] 2022/02/24 19:29:47 Running command nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
+
+[Container] 2022/02/24 19:29:47 Running command timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+time="2022-02-24T19:29:47.937543353Z" level=info msg="Starting up"
+failed to start daemon: pid file found, ensure docker is not running or delete /var/run/docker.pid
+Client:
+ Context:    default
+ Debug Mode: false
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 20.10.9
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 1
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runtime.v1.linux runc io.containerd.runc.v2
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 5b46e404f6b9f661a205e28d59c982d3634148f8
+ runc version: v1.0.2-0-g52b36a2d
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 4.14.252-195.483.amzn2.x86_64
+ Operating System: Ubuntu 18.04.6 LTS (containerized)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 2
+ Total Memory: 3.617GiB
+ Name: 0b00052c61f2
+ ID: UEVD:KX74:CXOA:AZRX:5LNK:FLQV:5DQT:XRQ4:SOU2:SS7U:FKXW:ZIGC
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Product License: Community Engine
+
+WARNING: API is accessible on http://127.0.0.1:2375 without encryption.
+         Access to the remote API is equivalent to root access on the host. Refer
+         to the 'Docker daemon attack surface' section in the documentation for
+         more information: https://docs.docker.com/go/attack-surface/
+WARNING: bridge-nf-call-iptables is disabled
+WARNING: bridge-nf-call-ip6tables is disabled
+
+[Container] 2022/02/24 19:29:47 Running command curl -sS -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
+
+[Container] 2022/02/24 19:29:50 Running command curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 38 44.4M   38 17.1M    0     0  37.9M      0  0:00:01 --:--:--  0:00:01 37.8M
+100 44.4M  100 44.4M    0     0  46.5M      0 --:--:-- --:--:-- --:--:-- 46.4M
+
+[Container] 2022/02/24 19:29:51 Running command chmod +x ./kubectl ./aws-iam-authenticator
+
+[Container] 2022/02/24 19:29:52 Running command echo `kubectl version`
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+Client Version: version.Info{Major:"1", Minor:"16+", GitVersion:"v1.16.8-eks-e16311", GitCommit:"e163110a04dcb2f39c3325af96d019b4925419eb", GitTreeState:"clean", BuildDate:"2020-03-27T22:40:13Z", GoVersion:"go1.13.8", Compiler:"gc", Platform:"linux/amd64"}
+
+[Container] 2022/02/24 19:29:54 Running command export PATH=$PWD/:$PATH
+
+[Container] 2022/02/24 19:29:54 Running command python -m pip install --upgrade --force pip
+Collecting pip
+  Downloading pip-22.0.3-py3-none-any.whl (2.1 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 21.1.2
+    Uninstalling pip-21.1.2:
+      Successfully uninstalled pip-21.1.2
+Successfully installed pip-22.0.3
+WARNING: Running pip as root will break packages and permissions. You should install packages reliably by using venv: https://pip.pypa.io/warnings/venv
+
+[Container] 2022/02/24 19:30:04 Running command apt-get update && apt-get -y install jq  && pip install --upgrade awscli
+Get:1 https://apt.corretto.aws stable InRelease [10.7 kB]
+Get:2 https://dl.yarnpkg.com/debian stable InRelease [17.1 kB]
+Get:3 https://download.mono-project.com/repo/ubuntu stable-bionic InRelease [5143 B]
+Get:4 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:5 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic InRelease [20.8 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+Get:7 http://archive.canonical.com/ubuntu bionic InRelease [10.2 kB]
+Get:8 https://apt.corretto.aws stable/main amd64 Packages [7849 B]
+Get:9 https://apt.corretto.aws stable/main i386 Packages [2642 B]
+Get:10 http://ppa.launchpad.net/malteworld/ppa/ubuntu bionic InRelease [15.3 kB]
+Get:11 https://dl.yarnpkg.com/debian stable/main amd64 Packages [10.7 kB]
+Get:12 https://dl.yarnpkg.com/debian stable/main all Packages [10.7 kB]
+Get:13 https://dl.yarnpkg.com/debian stable/main i386 Packages [10.7 kB]
+Get:14 https://download.mono-project.com/repo/ubuntu stable-bionic/main i386 Packages [49.1 kB]
+Get:15 https://download.mono-project.com/repo/ubuntu stable-bionic/main amd64 Packages [49.1 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:17 http://archive.canonical.com/ubuntu bionic/partner amd64 Packages [1587 B]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:19 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic/main amd64 Packages [3160 B]
+Get:20 http://security.ubuntu.com/ubuntu bionic-security/multiverse i386 Packages [6610 B]
+Get:21 http://archive.canonical.com/ubuntu bionic/partner i386 Packages [1584 B]
+Get:22 http://security.ubuntu.com/ubuntu bionic-security/restricted i386 Packages [29.8 kB]
+Get:23 http://ppa.launchpad.net/git-core/ppa/ubuntu bionic/main i386 Packages [3160 B]
+Get:24 http://security.ubuntu.com/ubuntu bionic-security/main i386 Packages [1394 kB]
+Get:25 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [11.3 MB]
+Get:26 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [806 kB]
+Get:27 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [21.1 kB]
+Get:28 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2596 kB]
+Get:29 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1474 kB]
+Get:30 http://security.ubuntu.com/ubuntu bionic-security/universe i386 Packages [1264 kB]
+Get:31 http://archive.ubuntu.com/ubuntu bionic/main i386 Packages [1328 kB]
+Get:32 http://archive.ubuntu.com/ubuntu bionic/restricted i386 Packages [13.5 kB]
+Get:33 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [13.5 kB]
+Get:34 http://archive.ubuntu.com/ubuntu bionic/multiverse i386 Packages [177 kB]
+Get:35 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [186 kB]
+Get:36 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1344 kB]
+Get:37 http://archive.ubuntu.com/ubuntu bionic/universe i386 Packages [11.3 MB]
+Get:38 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [29.0 kB]
+Get:39 http://archive.ubuntu.com/ubuntu bionic-updates/main i386 Packages [1786 kB]
+Get:40 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [2252 kB]
+Get:41 http://archive.ubuntu.com/ubuntu bionic-updates/restricted i386 Packages [40.3 kB]
+Get:42 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [840 kB]
+Get:43 http://archive.ubuntu.com/ubuntu bionic-updates/universe i386 Packages [2016 kB]
+Get:44 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse i386 Packages [12.7 kB]
+Get:45 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [3035 kB]
+Get:46 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [11.6 kB]
+Get:47 http://archive.ubuntu.com/ubuntu bionic-backports/main i386 Packages [11.6 kB]
+Get:48 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [12.6 kB]
+Get:49 http://archive.ubuntu.com/ubuntu bionic-backports/universe i386 Packages [12.6 kB]
+Fetched 44.1 MB in 4s (10.5 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+jq is already the newest version (1.5+dfsg-2).
+0 upgraded, 0 newly installed, 0 to remove and 70 not upgraded.
+Requirement already satisfied: awscli in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (1.20.58)
+Collecting awscli
+  Downloading awscli-1.22.61-py3-none-any.whl (3.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 36.1 MB/s eta 0:00:00
+Requirement already satisfied: rsa<4.8,>=3.1.2 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from awscli) (4.7.2)
+Requirement already satisfied: colorama<0.4.4,>=0.2.5 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from awscli) (0.4.3)
+Requirement already satisfied: PyYAML<5.5,>=3.10 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from awscli) (5.4.1)
+Requirement already satisfied: docutils<0.16,>=0.10 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from awscli) (0.15.2)
+Collecting botocore==1.24.6
+  Downloading botocore-1.24.6-py3-none-any.whl (8.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.5/8.5 MB 46.8 MB/s eta 0:00:00
+Requirement already satisfied: s3transfer<0.6.0,>=0.5.0 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from awscli) (0.5.0)
+Requirement already satisfied: urllib3<1.27,>=1.25.4 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from botocore==1.24.6->awscli) (1.26.7)
+Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from botocore==1.24.6->awscli) (2.8.2)
+Requirement already satisfied: jmespath<1.0.0,>=0.7.1 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from botocore==1.24.6->awscli) (0.10.0)
+Requirement already satisfied: pyasn1>=0.1.3 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from rsa<4.8,>=3.1.2->awscli) (0.4.8)
+Requirement already satisfied: six>=1.5 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from python-dateutil<3.0.0,>=2.1->botocore==1.24.6->awscli) (1.16.0)
+Installing collected packages: botocore, awscli
+  Attempting uninstall: botocore
+    Found existing installation: botocore 1.21.58
+    Uninstalling botocore-1.21.58:
+      Successfully uninstalled botocore-1.21.58
+  Attempting uninstall: awscli
+    Found existing installation: awscli 1.20.58
+    Uninstalling awscli-1.20.58:
+      Successfully uninstalled awscli-1.20.58
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+boto3 1.18.58 requires botocore<1.22.0,>=1.21.58, but you have botocore 1.24.6 which is incompatible.
+Successfully installed awscli-1.22.61 botocore-1.24.6
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[Container] 2022/02/24 19:30:27 Phase complete: INSTALL State: SUCCEEDED
+[Container] 2022/02/24 19:30:27 Phase context status code:  Message: 
+[Container] 2022/02/24 19:30:27 Entering phase PRE_BUILD
+[Container] 2022/02/24 19:30:27 Running command TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+
+[Container] 2022/02/24 19:30:27 Running command sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' simple_jwt_api.yml
+
+[Container] 2022/02/24 19:30:27 Running command $(aws ecr get-login --no-include-email)
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+
+[Container] 2022/02/24 19:30:29 Running command export KUBECONFIG=$HOME/.kube/config
+
+[Container] 2022/02/24 19:30:29 Running command pip3 install -r requirements.txt
+Collecting pyjwt==1.7.1
+  Downloading PyJWT-1.7.1-py2.py3-none-any.whl (18 kB)
+Collecting flask==1.1.2
+  Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.6/94.6 KB 17.4 MB/s eta 0:00:00
+Collecting gunicorn==20.0.4
+  Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.9/77.9 KB 18.4 MB/s eta 0:00:00
+Collecting pytest==6.2.2
+  Downloading pytest-6.2.2-py3-none-any.whl (280 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 280.1/280.1 KB 4.3 MB/s eta 0:00:00
+Requirement already satisfied: click>=5.1 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from flask==1.1.2->-r requirements.txt (line 2)) (7.1.2)
+Requirement already satisfied: Jinja2>=2.10.1 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from flask==1.1.2->-r requirements.txt (line 2)) (2.11.3)
+Requirement already satisfied: itsdangerous>=0.24 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from flask==1.1.2->-r requirements.txt (line 2)) (1.1.0)
+Requirement already satisfied: Werkzeug>=0.15 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from flask==1.1.2->-r requirements.txt (line 2)) (1.0.1)
+Requirement already satisfied: setuptools>=3.0 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from gunicorn==20.0.4->-r requirements.txt (line 3)) (58.2.0)
+Collecting packaging
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 KB 8.0 MB/s eta 0:00:00
+Collecting pluggy<1.0.0a1,>=0.12
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting py>=1.8.2
+  Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.7/98.7 KB 21.9 MB/s eta 0:00:00
+Collecting toml
+  Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Collecting iniconfig
+  Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+Requirement already satisfied: importlib-metadata>=0.12 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from pytest==6.2.2->-r requirements.txt (line 4)) (4.8.1)
+Requirement already satisfied: attrs>=19.2.0 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from pytest==6.2.2->-r requirements.txt (line 4)) (21.2.0)
+Requirement already satisfied: zipp>=0.5 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from importlib-metadata>=0.12->pytest==6.2.2->-r requirements.txt (line 4)) (3.6.0)
+Requirement already satisfied: typing-extensions>=3.6.4 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from importlib-metadata>=0.12->pytest==6.2.2->-r requirements.txt (line 4)) (3.10.0.2)
+Requirement already satisfied: MarkupSafe>=0.23 in /root/.pyenv/versions/3.7.10/lib/python3.7/site-packages (from Jinja2>=2.10.1->flask==1.1.2->-r requirements.txt (line 2)) (2.0.1)
+Collecting pyparsing!=3.0.5,>=2.0.2
+  Downloading pyparsing-3.0.7-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.0/98.0 KB 17.9 MB/s eta 0:00:00
+Installing collected packages: pyjwt, iniconfig, toml, pyparsing, py, gunicorn, pluggy, packaging, flask, pytest
+  Attempting uninstall: flask
+    Found existing installation: Flask 1.1.4
+    Uninstalling Flask-1.1.4:
+      Successfully uninstalled Flask-1.1.4
+Successfully installed flask-1.1.2 gunicorn-20.0.4 iniconfig-1.1.1 packaging-21.3 pluggy-0.13.1 py-1.11.0 pyjwt-1.7.1 pyparsing-3.0.7 pytest-6.2.2 toml-0.10.2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[Container] 2022/02/24 19:30:31 Running command python -m pytest test_main.py
+============================= test session starts ==============================
+platform linux -- Python 3.7.10, pytest-6.2.2, py-1.11.0, pluggy-0.13.1
+rootdir: /codebuild/output/src987278414/src
+collected 2 items
+
+test_main.py ..                                                          [100%]
+
+============================== 2 passed in 0.25s ===============================
+
+[Container] 2022/02/24 19:30:32 Phase complete: PRE_BUILD State: SUCCEEDED
+[Container] 2022/02/24 19:30:32 Phase context status code:  Message: 
+[Container] 2022/02/24 19:30:32 Entering phase BUILD
+[Container] 2022/02/24 19:30:32 Running command docker build --tag $REPOSITORY_URI:$TAG .
+Sending build context to Docker daemon   73.3MB
+
+Step 1/8 : FROM python:stretch
+stretch: Pulling from library/python
+092586df9206: Pulling fs layer
+ef599477fae0: Pulling fs layer
+4530c6472b5d: Pulling fs layer
+d34d61487075: Pulling fs layer
+87fc2710b63f: Pulling fs layer
+f142141aaad3: Pulling fs layer
+12eb19f5f2be: Pulling fs layer
+d34466b69a2a: Pulling fs layer
+fd8a0746ef83: Pulling fs layer
+f142141aaad3: Waiting
+12eb19f5f2be: Waiting
+d34466b69a2a: Waiting
+fd8a0746ef83: Waiting
+87fc2710b63f: Waiting
+4530c6472b5d: Verifying Checksum
+4530c6472b5d: Download complete
+ef599477fae0: Verifying Checksum
+ef599477fae0: Download complete
+092586df9206: Verifying Checksum
+092586df9206: Download complete
+d34d61487075: Verifying Checksum
+d34d61487075: Download complete
+f142141aaad3: Verifying Checksum
+f142141aaad3: Download complete
+d34466b69a2a: Verifying Checksum
+d34466b69a2a: Download complete
+12eb19f5f2be: Verifying Checksum
+12eb19f5f2be: Download complete
+fd8a0746ef83: Verifying Checksum
+fd8a0746ef83: Download complete
+87fc2710b63f: Verifying Checksum
+87fc2710b63f: Download complete
+092586df9206: Pull complete
+ef599477fae0: Pull complete
+4530c6472b5d: Pull complete
+d34d61487075: Pull complete
+87fc2710b63f: Pull complete
+f142141aaad3: Pull complete
+12eb19f5f2be: Pull complete
+d34466b69a2a: Pull complete
+fd8a0746ef83: Pull complete
+Digest: sha256:1b82f268fce299d627c23a6205cadc66dc60f46ea091e618e1ee68d9aa29b356
+Status: Downloaded newer image for python:stretch
+ ---> b9d77e48a75c
+Step 2/8 : COPY . /app
+ ---> bedccc8b99a5
+Step 3/8 : WORKDIR /app
+ ---> Running in 21daadf9d33c
+Removing intermediate container 21daadf9d33c
+ ---> c581d70788f3
+Step 4/8 : RUN pip install --upgrade pip
+ ---> Running in e13e90194803
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/6a/df/a6ef77a6574781a668791419ffe366c8acd1c3cf4709d210cb53cd5ce1c2/pip-22.0.3-py3-none-any.whl (2.1MB)
+Installing collected packages: pip
+  Found existing installation: pip 19.2.3
+    Uninstalling pip-19.2.3:
+      Successfully uninstalled pip-19.2.3
+Successfully installed pip-22.0.3
+Removing intermediate container e13e90194803
+ ---> 14c088db940a
+Step 5/8 : RUN pip install -r requirements.txt
+ ---> Running in 7abbaf6b97a7
+Collecting pyjwt==1.7.1
+  Downloading PyJWT-1.7.1-py2.py3-none-any.whl (18 kB)
+Collecting flask==1.1.2
+  Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.6/94.6 KB 13.5 MB/s eta 0:00:00
+Collecting gunicorn==20.0.4
+  Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.9/77.9 KB 2.6 MB/s eta 0:00:00
+Collecting pytest==6.2.2
+  Downloading pytest-6.2.2-py3-none-any.whl (280 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 280.1/280.1 KB 7.1 MB/s eta 0:00:00
+Collecting Werkzeug>=0.15
+  Downloading Werkzeug-2.0.3-py3-none-any.whl (289 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 289.2/289.2 KB 7.9 MB/s eta 0:00:00
+Collecting click>=5.1
+  Downloading click-8.0.4-py3-none-any.whl (97 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.5/97.5 KB 10.8 MB/s eta 0:00:00
+Collecting Jinja2>=2.10.1
+  Downloading Jinja2-3.0.3-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.6/133.6 KB 4.2 MB/s eta 0:00:00
+Collecting itsdangerous>=0.24
+  Downloading itsdangerous-2.1.0-py3-none-any.whl (15 kB)
+Requirement already satisfied: setuptools>=3.0 in /usr/local/lib/python3.7/site-packages (from gunicorn==20.0.4->-r requirements.txt (line 3)) (41.2.0)
+Collecting packaging
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 KB 9.0 MB/s eta 0:00:00
+Collecting py>=1.8.2
+  Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.7/98.7 KB 19.2 MB/s eta 0:00:00
+Collecting toml
+  Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Collecting pluggy<1.0.0a1,>=0.12
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting importlib-metadata>=0.12
+  Downloading importlib_metadata-4.11.1-py3-none-any.whl (17 kB)
+Collecting iniconfig
+  Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+Collecting attrs>=19.2.0
+  Downloading attrs-21.4.0-py2.py3-none-any.whl (60 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.6/60.6 KB 12.4 MB/s eta 0:00:00
+Collecting zipp>=0.5
+  Downloading zipp-3.7.0-py3-none-any.whl (5.3 kB)
+Collecting typing-extensions>=3.6.4
+  Downloading typing_extensions-4.1.1-py3-none-any.whl (26 kB)
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-2.1.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting pyparsing!=3.0.5,>=2.0.2
+  Downloading pyparsing-3.0.7-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.0/98.0 KB 21.5 MB/s eta 0:00:00
+Installing collected packages: pyjwt, iniconfig, zipp, Werkzeug, typing-extensions, toml, pyparsing, py, MarkupSafe, itsdangerous, gunicorn, attrs, packaging, Jinja2, importlib-metadata, pluggy, click, pytest, flask
+Successfully installed Jinja2-3.0.3 MarkupSafe-2.1.0 Werkzeug-2.0.3 attrs-21.4.0 click-8.0.4 flask-1.1.2 gunicorn-20.0.4 importlib-metadata-4.11.1 iniconfig-1.1.1 itsdangerous-2.1.0 packaging-21.3 pluggy-0.13.1 py-1.11.0 pyjwt-1.7.1 pyparsing-3.0.7 pytest-6.2.2 toml-0.10.2 typing-extensions-4.1.1 zipp-3.7.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Removing intermediate container 7abbaf6b97a7
+ ---> 30bd1c22beb9
+Step 6/8 : ENV FLASK_DEBUG=1
+ ---> Running in aa23c58f4e04
+Removing intermediate container aa23c58f4e04
+ ---> 6221cf66c056
+Step 7/8 : ENV FLASK_APP=main.py
+ ---> Running in 3931f5d59070
+Removing intermediate container 3931f5d59070
+ ---> 1686c6c79f9a
+Step 8/8 : ENTRYPOINT ["gunicorn", "-b", ":8080", "main:APP"]
+ ---> Running in 327fff7ab9a2
+Removing intermediate container 327fff7ab9a2
+ ---> a010c4efbc20
+Successfully built a010c4efbc20
+Successfully tagged 279272046356.dkr.ecr.us-east-1.amazonaws.com/ci-cd-stack-ecrdockerrepository-mxiresd1ojvp:FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS.master..2022-02-24.19.30.27.502e0e0f
+
+[Container] 2022/02/24 19:31:07 Phase complete: BUILD State: SUCCEEDED
+[Container] 2022/02/24 19:31:07 Phase context status code:  Message: 
+[Container] 2022/02/24 19:31:07 Entering phase POST_BUILD
+[Container] 2022/02/24 19:31:07 Running command docker push $REPOSITORY_URI:$TAG
+The push refers to repository [279272046356.dkr.ecr.us-east-1.amazonaws.com/ci-cd-stack-ecrdockerrepository-mxiresd1ojvp]
+46bf5fd6318d: Preparing
+40c92dac93d7: Preparing
+9bb045ae4efe: Preparing
+611ec0189160: Preparing
+f6c506432da1: Preparing
+f81368f5f171: Preparing
+2cadd3d84047: Preparing
+409170aec809: Preparing
+2e669e0134f5: Preparing
+8bacec4e3446: Preparing
+26b1991f37bd: Preparing
+55e6b89812f3: Preparing
+f81368f5f171: Waiting
+2cadd3d84047: Waiting
+409170aec809: Waiting
+2e669e0134f5: Waiting
+8bacec4e3446: Waiting
+26b1991f37bd: Waiting
+55e6b89812f3: Waiting
+f6c506432da1: Pushed
+611ec0189160: Pushed
+46bf5fd6318d: Pushed
+40c92dac93d7: Pushed
+9bb045ae4efe: Pushed
+2cadd3d84047: Pushed
+8bacec4e3446: Pushed
+f81368f5f171: Pushed
+26b1991f37bd: Pushed
+2e669e0134f5: Pushed
+55e6b89812f3: Pushed
+409170aec809: Pushed
+FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS.master..2022-02-24.19.30.27.502e0e0f: digest: sha256:5965d3d4b2f3dbc8b52a20fb98adb354435a398dd1126a27f926a090d438994a size: 2853
+
+[Container] 2022/02/24 19:31:45 Running command aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --role-arn $EKS_KUBECTL_ROLE_ARN
+Added new context arn:aws:eks:us-east-1:279272046356:cluster/simple-jwt-api to /root/.kube/config
+
+[Container] 2022/02/24 19:31:46 Running command kubectl apply -f simple_jwt_api.yml
+service/simple-jwt-api created
+deployment.apps/simple-jwt-api created
+
+[Container] 2022/02/24 19:31:47 Running command printf '[{"name":"simple_jwt_api","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
+
+[Container] 2022/02/24 19:31:47 Phase complete: POST_BUILD State: SUCCEEDED
+[Container] 2022/02/24 19:31:47 Phase context status code:  Message: 
+[Container] 2022/02/24 19:31:47 Expanding base directory path: .
+[Container] 2022/02/24 19:31:47 Assembling file list
+[Container] 2022/02/24 19:31:47 Expanding .
+[Container] 2022/02/24 19:31:47 Expanding file paths for base directory .
+[Container] 2022/02/24 19:31:47 Assembling file list
+[Container] 2022/02/24 19:31:47 Expanding build.json
+[Container] 2022/02/24 19:31:47 Found 1 file(s)
+[Container] 2022/02/24 19:31:47 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+[Container] 2022/02/24 19:31:47 Phase context status code:  Message: 

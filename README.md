@@ -37,9 +37,10 @@ Completing the project involves several steps:
 
 For more detail about each of these steps, see the project lesson.
 ## Notes
+- IP `aeb259ff35cce49d1a6f91c1b6b553cb-1402362124.us-east-1.elb.amazonaws.com`
 - to get your account ID 
 `aws sts get-caller-identity --query Account --output text`
-
+- get the IP of the app `kubectl get services simple-jwt-api -o wide`
 ## after review do the following 
 1. delete the eks cluster   
  `eksctl delete cluster simple-jwt-api  --region=us-east-2`
